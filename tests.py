@@ -23,6 +23,13 @@ class Tests(unittest.TestCase):
         m1 = Maze(100, 200, 10, 10, 10, 10, None)
         self.assertEqual(m1._x1, 100)
         self.assertEqual(m1._y1, 200)
+    
+    def test_maze_entrance_and_exit(self):
+        num_cols = 16
+        num_rows = 12
+        m1 = Maze(0, 0, num_rows, num_cols, 10, 10, None)
+        self.assertEqual(m1._cells[0][0].has_top_wall, False)
+        self.assertEqual(m1._cells[m1._num_cols - 1][m1._num_rows - 1].has_bottom_wall, False)
 
 if __name__ == "__main__":
     unittest.main()
